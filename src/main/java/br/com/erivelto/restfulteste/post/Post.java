@@ -38,7 +38,10 @@ public class Post {
             {@JoinColumn(name = "postId")})
     private List<Tag> tagList;
 
-
+    @ManyToMany
+    @JoinTable(name = "imagem_lists", joinColumns =
+            {@JoinColumn(name = "imagemId")}, inverseJoinColumns =
+            {@JoinColumn(name = "postId")})
     private List<Imagem> imagem;
 
 
