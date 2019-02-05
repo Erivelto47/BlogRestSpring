@@ -5,10 +5,7 @@ import br.com.erivelto.restfulteste.autor.Autor;
 import br.com.erivelto.restfulteste.imagem.Imagem;
 import lombok.Data;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
 
@@ -27,9 +24,21 @@ public class Post {
 
     private String titulo;
     private String subtitulo;
+
+    @ManyToMany
+    @JoinTable(name="post_autor", joinColumns=
+            {@JoinColumn(name="autorId")}, inverseJoinColumns=
+            {@JoinColumn(name="postId")})
     private List<Autor> autor;
     private Date dataPublicacao;
+
+    @ManyToMany
+    @JoinTable(name = "tag_lists", joinColumns =
+            {@JoinColumn(name = "tagId")}, inverseJoinColumns =
+            {@JoinColumn(name = "postId")})
     private List<Tag> tagList;
+
+
     private List<Imagem> imagem;
 
 

@@ -1,26 +1,23 @@
 package br.com.erivelto.restfulteste.autor;
 
+import br.com.erivelto.restfulteste.pessoa.Pessoa;
 import lombok.Data;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 /**
  * Create by erivelto on 01/02/19
  */
 @Data
 @Entity
-public class Autor {
+@PrimaryKeyJoinColumn(name = "autorId", referencedColumnName = "id")
+public class Autor extends Pessoa {
 
     @Id
     @GeneratedValue
     @Column(name = "id")
     private Long autorId;
 
-    private String nome;
-    private String sobrenome;
     private Integer idade;
 
 
