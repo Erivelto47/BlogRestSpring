@@ -1,11 +1,11 @@
 package br.com.erivelto.restfulteste.pessoa;
 
-import br.com.erivelto.restfulteste.usuario.Usuario;
 import lombok.Data;
 import org.hibernate.validator.constraints.br.CPF;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import java.io.Serializable;
 import java.time.LocalDate;
 
 /**
@@ -14,17 +14,18 @@ import java.time.LocalDate;
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 @Data
-public class Pessoa {
+public class Pessoa implements Serializable {
 
     @Id
-    @GeneratedValue
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    private Long pessoaId;
 
-    @NotBlank(message = "nome nao pode ser vazio")
+    @NotBlank(message = "Nome nao pode ser vazio")
     @Column(nullable = false)
     private String nome;
 
-    @NotBlank(message = "sobrenome nao pode ser vazio")
+    @NotBlank(message = "Sobrenome nao pode ser vazio")
     @Column(nullable = false)
     private String sobrenome;
 
