@@ -1,17 +1,19 @@
 package br.com.erivelto.restfulteste.Tag;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import lombok.Data;
+
+import javax.persistence.*;
 
 /**
  * Create by erivelto on 01/02/19
  */
+@Entity
+@Data
 public class Tag {
 
     @Id
     @GeneratedValue
-    private Long Id;
+    private Long tagId;
 
     @Column
     private String nome;

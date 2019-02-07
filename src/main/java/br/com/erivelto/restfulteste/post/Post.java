@@ -38,10 +38,7 @@ public class Post {
             {@JoinColumn(name = "postId")})
     private List<Tag> tagList;
 
-    @ManyToMany
-    @JoinTable(name = "imagem_lists", joinColumns =
-            {@JoinColumn(name = "imagemId")}, inverseJoinColumns =
-            {@JoinColumn(name = "postId")})
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "post")
     private List<Imagem> imagem;
 
 

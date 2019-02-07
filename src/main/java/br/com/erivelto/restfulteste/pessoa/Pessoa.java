@@ -4,7 +4,9 @@ import lombok.Data;
 import org.hibernate.validator.constraints.br.CPF;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
 import java.io.Serializable;
 import java.time.LocalDate;
 
@@ -21,19 +23,26 @@ public class Pessoa implements Serializable {
     @Column(name = "id")
     private Long pessoaId;
 
-    @NotBlank(message = "Nome nao pode ser vazio")
-    @Column(nullable = false)
+//    @NotBlank(message = "Nome nao pode ser vazio")
+    @Column(nullable = true)
     private String nome;
 
-    @NotBlank(message = "Sobrenome nao pode ser vazio")
-    @Column(nullable = false)
+//    @NotBlank(message = "Sobrenome nao pode ser vazio")
+    @Column(nullable = true)
     private String sobrenome;
 
     @CPF(message = "cpf invalido")
-    @Column(nullable = false)
+    @Column(nullable = true)
     private String cpf;
 
-    private LocalDate dob; //Data de Aniversário
+    @Email
+    @Column(nullable = true)
+    private String email;
+
+//    @Pattern(regexp = )
+
+    @Column(name = "data_aniversario")
+    private LocalDate dob;
 
     public String getFullName() {
         return this.nome + " " + this.sobrenome;

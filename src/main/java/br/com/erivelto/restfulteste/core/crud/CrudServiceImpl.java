@@ -1,5 +1,7 @@
 package br.com.erivelto.restfulteste.core.crud;
 
+import br.com.erivelto.restfulteste.core.validation.Validator;
+import br.com.erivelto.restfulteste.exception.ValidationException;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.io.Serializable;
@@ -45,5 +47,15 @@ public abstract class CrudServiceImpl<T, ID extends Serializable> implements Cru
     @Override
     public void delete(T entity) {
         getRepository().delete(entity);
+    }
+
+
+    protected  <T> void valida(Validator<T> validator, T obj){
+        try {
+            validator.valida(obj);
+        }catch (ValidationException e) {
+            System.err.println(e.getMessage());
+            throw new RuntimeException(e.getMessage());
+        }
     }
 }

@@ -1,5 +1,6 @@
 package br.com.erivelto.restfulteste.imagem;
 
+import br.com.erivelto.restfulteste.post.Post;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -16,10 +17,10 @@ public class Imagem {
     @Column(name = "id")
     private Long imagemId;
 
+    @ManyToOne
+    private Post post;
+
     @Column
     private String caminho;
-
-
-
 
 }

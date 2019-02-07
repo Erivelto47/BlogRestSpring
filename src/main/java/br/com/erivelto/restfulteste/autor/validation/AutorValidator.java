@@ -9,7 +9,7 @@ import br.com.erivelto.restfulteste.core.validation.Validator;
 public class AutorValidator implements Validator<Autor> {
 
     @Override
-    public void valid(Autor o) {
+    public void valida(Autor o) {
 
     }
 }
