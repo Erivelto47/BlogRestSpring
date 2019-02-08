@@ -1,8 +1,8 @@
 package br.com.erivelto.restfulteste.post;
 
 import br.com.erivelto.restfulteste.Tag.Tag;
-import br.com.erivelto.restfulteste.autor.Autor;
 import br.com.erivelto.restfulteste.imagem.Imagem;
+import br.com.erivelto.restfulteste.usuario.Usuario;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -27,9 +27,11 @@ public class Post {
 
     @ManyToMany
     @JoinTable(name="post_autor", joinColumns=
-            {@JoinColumn(name="autorId")}, inverseJoinColumns=
+            {@JoinColumn(name="pessoaId")}, inverseJoinColumns=
             {@JoinColumn(name="postId")})
-    private List<Autor> autor;
+    private List<Usuario> autorList;//
+
+    @Column(name = "data_publicacao")
     private Date dataPublicacao;
 
     @ManyToMany
@@ -40,7 +42,4 @@ public class Post {
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "post")
     private List<Imagem> imagem;
-
-
-
 }

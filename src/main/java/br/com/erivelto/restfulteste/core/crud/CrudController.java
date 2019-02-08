@@ -36,8 +36,12 @@ public abstract class CrudController<T, ID extends Serializable> {
     }
 
     @PostMapping
-    public T save(@Valid @RequestBody T entity){//@Valid para funcionar as validaçoes do JPA tipo @NotBlank
-        return getService().save(entity);
+    public ResponseEntity<T> save(@Valid @RequestBody T entity){//@Valid para funcionar as validaçoes do JPA tipo @NotBlank
+        return postSave(getService().save(entity));
+    }
+
+    public ResponseEntity<T> postSave(T entity) {
+        return ResponseEntity.ok(entity);
     }
 
 

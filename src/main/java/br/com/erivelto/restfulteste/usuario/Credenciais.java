@@ -14,6 +14,10 @@ import javax.validation.constraints.NotBlank;
 public class Credenciais {
 
     @NotBlank
+    @Column(name = "tipo_usuario", length = 3)
+    private String tipoUsuario;
+
+    @NotBlank
     @Column(name = "nome_usuario")
     private String nomeUsuario;
 

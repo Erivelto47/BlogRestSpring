@@ -1,8 +1,7 @@
-package br.com.erivelto.restfulteste.usuario.validacao;
+package br.com.erivelto.restfulteste.usuario.validation;
 
 import br.com.erivelto.restfulteste.core.validation.Validator;
 import br.com.erivelto.restfulteste.exception.ValidationException;
-import br.com.erivelto.restfulteste.usuario.Usuario;
 import br.com.erivelto.restfulteste.usuario.UsuarioRepository;
 
 /**
