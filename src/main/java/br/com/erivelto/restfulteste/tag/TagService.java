@@ -1,7 +1,6 @@
-package br.com.erivelto.restfulteste.Tag;
+package br.com.erivelto.restfulteste.tag;
 
 import br.com.erivelto.restfulteste.core.crud.CrudService;
-import org.springframework.stereotype.Service;
 
 /**
  * Create by erivelto on 07/02/19

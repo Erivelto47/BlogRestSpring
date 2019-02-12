@@ -1,6 +1,6 @@
-package br.com.erivelto.restfulteste.Tag;
+package br.com.erivelto.restfulteste.tag;
 
-import br.com.erivelto.restfulteste.Tag.validation.NomeTagValidator;
+import br.com.erivelto.restfulteste.tag.validation.NomeTagValidator;
 import br.com.erivelto.restfulteste.core.crud.CrudServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.JpaRepository;

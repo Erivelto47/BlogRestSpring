@@ -1,4 +1,4 @@
-package br.com.erivelto.restfulteste.Tag;
+package br.com.erivelto.restfulteste.tag;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

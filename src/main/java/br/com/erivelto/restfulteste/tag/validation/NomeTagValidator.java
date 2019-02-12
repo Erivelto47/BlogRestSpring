@@ -1,6 +1,5 @@
-package br.com.erivelto.restfulteste.Tag.validation;
+package br.com.erivelto.restfulteste.tag.validation;
 
-import br.com.erivelto.restfulteste.Tag.Tag;
 import br.com.erivelto.restfulteste.core.validation.Validator;
 import br.com.erivelto.restfulteste.exception.ValidationException;
 

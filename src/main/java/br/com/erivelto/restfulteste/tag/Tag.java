@@ -1,4 +1,4 @@
-package br.com.erivelto.restfulteste.Tag;
+package br.com.erivelto.restfulteste.tag;
 
 import lombok.Data;
 
@@ -13,6 +13,7 @@ public class Tag {
 
     @Id
     @GeneratedValue
+    @Column(name = "id")
     private Long tagId;
 
     @Column

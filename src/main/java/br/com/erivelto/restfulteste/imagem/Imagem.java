@@ -18,6 +18,7 @@ public class Imagem {
     private Long imagemId;
 
     @ManyToOne
+    @JoinColumn
     private Post post;
 
     @Column

@@ -1,6 +1,6 @@
 package br.com.erivelto.restfulteste.post;
 
-import br.com.erivelto.restfulteste.Tag.Tag;
+import br.com.erivelto.restfulteste.tag.Tag;
 import br.com.erivelto.restfulteste.imagem.Imagem;
 import br.com.erivelto.restfulteste.usuario.Usuario;
 import lombok.Data;
@@ -40,6 +40,6 @@ public class Post {
             {@JoinColumn(name = "postId")})
     private List<Tag> tagList;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "post")
-    private List<Imagem> imagem;
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<Imagem> imagemList;
 }

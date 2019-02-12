@@ -1,4 +1,4 @@
-package br.com.erivelto.restfulteste.Tag;
+package br.com.erivelto.restfulteste.tag;
 
 import br.com.erivelto.restfulteste.core.crud.CrudController;
 import br.com.erivelto.restfulteste.core.crud.CrudService;
