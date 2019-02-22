@@ -17,9 +17,17 @@ public class NomeUsuarioValidator implements Validator<String> {
 
     @Override
     public void valida(String nomeUsuario) throws ValidationException {
-        boolean present = usuarioRepository.findByCredenciais_NomeUsuario(nomeUsuario).isPresent();
 
-        if (present) throw new ValidationException("O nome de usuário já existe.");
+        if(nomeUsuario.equals("")){
+            throw new ValidationException("O nome de usuário não pode ser VAZIO.");
+        }
+        else{
+
+            boolean present = usuarioRepository.findByCredenciais_NomeUsuario(nomeUsuario).isPresent();
+
+            if (present) throw new ValidationException("O nome de usuário já existe.");
+
+        }
 
 
     }
