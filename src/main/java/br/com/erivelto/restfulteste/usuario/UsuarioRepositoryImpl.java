@@ -1,7 +1,6 @@
 package br.com.erivelto.restfulteste.usuario;
 
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -12,14 +11,13 @@ import java.util.List;
  * Create by erivelto on 21/02/19
  */
 @Repository
-@Transactional
-public class UserRepositoryImpl implements UserRepositoryCustom {
+public class UsuarioRepositoryImpl implements UsuarioRepositoryCustom {
 
     @PersistenceContext
     private EntityManager entityManager;
 
     @Override
-    public List<Usuario> findByExample() {
+    public List<Usuario> exemplo() {
         String sql = "select * from usuario";
 
         Query query = entityManager.createNativeQuery(sql);

@@ -5,7 +5,7 @@ import java.util.List;
 /**
  * Create by erivelto on 21/02/19
  */
-public interface UserRepositoryCustom {
+public interface UsuarioRepositoryCustom {
 
-    List<Usuario> findByExample();
+    List<Usuario> exemplo();
 }
