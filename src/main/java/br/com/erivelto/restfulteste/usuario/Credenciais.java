@@ -1,6 +1,7 @@
 package br.com.erivelto.restfulteste.usuario;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
@@ -11,6 +12,7 @@ import javax.validation.constraints.NotBlank;
  */
 @Embeddable
 @Data
+@NoArgsConstructor
 public class Credenciais {
 
     @NotBlank
@@ -25,4 +27,9 @@ public class Credenciais {
     @Column(name = "senha")
     private String senha;
 
+    public Credenciais(@NotBlank String nomeUsuario, @NotBlank String senha) {
+        this.nomeUsuario = nomeUsuario;
+        this.senha = senha;
+        this.tipoUsuario = "ADM";
+    }
 }
