@@ -12,7 +12,8 @@ public enum TipoUsuario {
 
     ADMINISTRADOR("ADM"),
     LEITOR("LTR"),
-    AUTOR("ATR");
+    AUTOR("ATR"),
+    USUARIO("USR");
 
     @Getter
     private String tipoUsuario;

@@ -28,9 +28,9 @@ class CORSConfig implements Filter {
         var response = (HttpServletResponse) servletResponse;
         var request = (HttpServletRequest) servletRequest;
 
-        response.setHeader("Access-Control-Allow-Origin", "*");
-        response.setHeader("Access-Control-Allow-Headers", "*");
-        response.setHeader("Access-Control-Allow-Methods", "POST, PUT, GET, OPTIONS, DELETE, PATCH");
+        response.setHeader("Access-Control-Allow-Origin", "*");//restringe as origens de aplicação
+        response.setHeader("Access-Control-Allow-Headers", "*");//restringe as variaveis no header
+        response.setHeader("Access-Control-Allow-Methods", "POST, PUT, GET, OPTIONS, DELETE, PATCH");//quais metodos será aceito
         response.setHeader("Access-Control-Allow-Credentials", "true");
         response.setHeader("Access-Control-Max-Age", "3600");
 
