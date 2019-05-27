@@ -20,6 +20,11 @@ public class Usuario extends Pessoa {
     @Embedded
     private Credenciais credenciais;
 
+    public Usuario(String nomeUsuario, String nome, String senha){
+        this.credenciais = new Credenciais(nomeUsuario, senha);
+        this.setNome(nome);
+    }
+
     public String getUsername() {
         return this.credenciais != null ? this.credenciais.getNomeUsuario() : null;
     }

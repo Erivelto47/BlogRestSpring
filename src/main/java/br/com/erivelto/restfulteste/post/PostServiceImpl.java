@@ -1,6 +1,7 @@
 package br.com.erivelto.restfulteste.post;
 
 import br.com.erivelto.restfulteste.core.crud.CrudServiceImpl;
+import br.com.erivelto.restfulteste.exception.ValidationException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
@@ -16,7 +17,7 @@ public class PostServiceImpl extends CrudServiceImpl<Post, Long> implements Post
     }
 
     @Override
-    protected void preSave(Post entity) {
+    protected void preSave(Post entity) throws ValidationException {
         /*List<Usuario> autores = new ArrayList<>();
         entity.getAutorList().stream()
                 .filter(a -> a.getPessoaId() != null)

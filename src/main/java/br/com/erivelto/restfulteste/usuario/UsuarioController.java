@@ -28,12 +28,12 @@ public class UsuarioController extends CrudController<Usuario, Long> {
     }
 
     @Override
-    public ResponseEntity<Usuario> save(@Valid @RequestBody Usuario entity) {
+    public ResponseEntity save(@Valid @RequestBody Usuario entity) {
         try {
             Usuario usuario = usuarioService.save(entity);
-            return ResponseEntity.ok(usuario);
-        } catch (ValidationException e) {
-            return ResponseEntity.badRequest().header("message", e.getLocalizedMessage()).build();
+            return ResponseEntity.status(201).body(usuario);
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body(e.getLocalizedMessage());
         }
     }
 }

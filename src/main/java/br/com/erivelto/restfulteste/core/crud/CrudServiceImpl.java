@@ -26,8 +26,12 @@ public abstract class CrudServiceImpl<T, ID extends Serializable> implements Cru
     }
 
     @Override
-    public T save(T entity) {
-        preSave(entity);
+    public T save(T entity) throws ValidationException {
+      try{
+          preSave(entity);
+      } catch (ValidationException e){
+          throw new ValidationException(e.getMessage());
+      }
         return postSave(getRepository().save(entity));
     }
 
@@ -35,7 +39,7 @@ public abstract class CrudServiceImpl<T, ID extends Serializable> implements Cru
         return save;
     }
 
-    protected void preSave(T entity) {
+    protected void preSave(T entity) throws ValidationException {
 
     }
 
@@ -50,12 +54,12 @@ public abstract class CrudServiceImpl<T, ID extends Serializable> implements Cru
     }
 
 
-    protected  <T> void valida(Validator<T> validator, T obj){
+    protected  <T> void valida(Validator<T> validator, T obj) throws ValidationException {
         try {
             validator.valida(obj);
         }catch (ValidationException e) {
             System.err.println(e.getMessage());
-            throw new RuntimeException(e.getMessage());
+            throw new ValidationException(e.getMessage());
         }
     }
 }

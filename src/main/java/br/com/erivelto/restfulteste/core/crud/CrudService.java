@@ -12,7 +12,7 @@ public interface CrudService<T, ID extends Serializable> {
 
     T findById(ID id);
 
-    T save(T entity);
+    T save(T entity) throws Exception;
 
     void delete(ID id);
 

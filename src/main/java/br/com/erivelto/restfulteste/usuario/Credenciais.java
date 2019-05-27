@@ -17,7 +17,7 @@ public class Credenciais {
 
     @NotBlank
     @Column(name = "tipo_usuario", length = 3)
-    private String tipoUsuario;
+    private String tipoUsuario = "USR";
 
     @NotBlank
     @Column(name = "nome_usuario")

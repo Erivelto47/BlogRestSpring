@@ -1,5 +1,6 @@
 package br.com.erivelto.restfulteste.tag;
 
+import br.com.erivelto.restfulteste.exception.ValidationException;
 import br.com.erivelto.restfulteste.tag.validation.NomeTagValidator;
 import br.com.erivelto.restfulteste.core.crud.CrudServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +22,7 @@ public class TagServiceImpl extends CrudServiceImpl<Tag, Long> implements TagSer
     }
 
     @Override
-    protected void preSave(Tag entity) {
+    protected void preSave(Tag entity) throws ValidationException {
         valida(new NomeTagValidator(), entity.getNome());
         super.preSave(entity);
     }

@@ -53,12 +53,12 @@ public class SecurityJavaConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         // cria uma conta default
-        auth//.userDetailsService(userDetailsService)
-                //.passwordEncoder(passwordEncoder())
-                .inMemoryAuthentication()
-                .withUser("admin@admin")
-                .password(passwordEncoder().encode("password"))
-                .roles("ADMIN");
+        auth.userDetailsService(userDetailsService)
+                .passwordEncoder(passwordEncoder());
+//                .inMemoryAuthentication()
+//                .withUser("admin@admin")
+//                .password(passwordEncoder().encode("password"))
+//                .roles("ADMIN");
     }
 
     @Bean

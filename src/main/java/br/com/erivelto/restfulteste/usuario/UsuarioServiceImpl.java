@@ -1,6 +1,7 @@
 package br.com.erivelto.restfulteste.usuario;
 
 import br.com.erivelto.restfulteste.core.crud.CrudServiceImpl;
+import br.com.erivelto.restfulteste.exception.ValidationException;
 import br.com.erivelto.restfulteste.usuario.validation.NomeUsuarioValidator;
 import br.com.erivelto.restfulteste.usuario.validation.SenhaValidator;
 import br.com.erivelto.restfulteste.usuario.validation.TipoUsuarioValidator;
@@ -35,17 +36,25 @@ public class UsuarioServiceImpl extends CrudServiceImpl<Usuario, Long> implement
     }
 
     @Override
-    protected void preSave(Usuario entity) {
-        valida(new SenhaValidator(), entity.getCredenciais().getSenha());
-        valida(new NomeUsuarioValidator(usuarioRepository), entity.getCredenciais().getNomeUsuario());
-        valida(new TipoUsuarioValidator(), entity.getCredenciais().getTipoUsuario());
+    protected void preSave(Usuario entity) throws ValidationException {
+        try{
+            valida(new SenhaValidator(), entity.getCredenciais().getSenha());
+            valida(new NomeUsuarioValidator(usuarioRepository), entity.getCredenciais().getNomeUsuario());
+            valida(new TipoUsuarioValidator(), entity.getCredenciais().getTipoUsuario());
+        } catch (ValidationException e){
+            throw new ValidationException(e.getMessage());
+        }
 
         if(entity.getPessoaId() == null){
             String pass = passwordEncoder.encode(entity.getSenha());
             entity.setSenha(pass);
         }
 
-        super.preSave(entity);
+        try {
+            super.preSave(entity);
+        } catch (ValidationException e){
+            throw new ValidationException(e.getMessage());
+        }
     }
 
     @Override
