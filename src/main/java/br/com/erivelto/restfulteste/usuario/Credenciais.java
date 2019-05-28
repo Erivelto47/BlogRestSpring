@@ -17,7 +17,7 @@ public class Credenciais {
 
     @NotBlank
     @Column(name = "tipo_usuario", length = 3)
-    private String tipoUsuario = "USR";
+    private TipoUsuario tipoUsuario = TipoUsuario.USUARIO;
 
     @NotBlank
     @Column(name = "nome_usuario")
@@ -27,9 +27,15 @@ public class Credenciais {
     @Column(name = "senha")
     private String senha;
 
+    public Credenciais(@NotBlank String nomeUsuario, @NotBlank String senha, TipoUsuario tipoUsuario) {
+        this.nomeUsuario = nomeUsuario;
+        this.senha = senha;
+        this.tipoUsuario = tipoUsuario;
+    }
+
     public Credenciais(@NotBlank String nomeUsuario, @NotBlank String senha) {
         this.nomeUsuario = nomeUsuario;
         this.senha = senha;
-        this.tipoUsuario = "ADM";
     }
+
 }

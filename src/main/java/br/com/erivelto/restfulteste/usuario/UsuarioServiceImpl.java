@@ -69,4 +69,9 @@ public class UsuarioServiceImpl extends CrudServiceImpl<Usuario, Long> implement
                 usuario1.getSenha(),
                 Collections.singletonList(new SimpleGrantedAuthority("ROLE_ADMIN")));
     }
+
+    @Override
+    public Usuario findByNomeUsuario(String nomeUsuario) {
+        return usuarioRepository.findByCredenciaisNomeUsuario(nomeUsuario);
+    }
 }

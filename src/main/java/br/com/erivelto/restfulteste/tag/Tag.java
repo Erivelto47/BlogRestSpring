@@ -19,4 +19,7 @@ public class Tag {
     @Column
     private String nome;
 
+    @Column
+    private String descricao;
+
 }

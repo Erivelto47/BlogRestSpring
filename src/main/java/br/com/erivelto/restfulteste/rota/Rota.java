@@ -1,15 +1,20 @@
 package br.com.erivelto.restfulteste.rota;
 
 import br.com.erivelto.restfulteste.usuario.TipoUsuario;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import javax.validation.Valid;
 
 /**
  * Create by erivelto on 27/05/19
  */
 @Data
 @Entity(name = "rotas")
+@AllArgsConstructor
+@NoArgsConstructor
 public class Rota {
 
     @Id
@@ -46,6 +51,16 @@ public class Rota {
     /**
      * O menu pai, serve para submenus, quando é null significa que este é um menu raiz
      * */
-    @Column(name = "menu_pai")
-    private Long menuPai;
+    @ManyToOne
+    @JoinColumn
+    private Rota menuPai;
+
+
+    public Rota(@Valid TipoUsuario tipoUsuario, @Valid String nome, @Valid String path, @Valid String descricao, @Valid Rota menuPai){
+        this.tipoUsuario = tipoUsuario;
+        this.nome = nome;
+        this.path = path;
+        this.descricao = descricao;
+        this.menuPai = menuPai;
+    }
 }

@@ -20,6 +20,11 @@ public class Usuario extends Pessoa {
     @Embedded
     private Credenciais credenciais;
 
+    public Usuario(String nomeUsuario, String nome, String senha, TipoUsuario tipoUsuario){
+        this.credenciais = new Credenciais(nomeUsuario, senha, tipoUsuario);
+        this.setNome(nome);
+    }
+
     public Usuario(String nomeUsuario, String nome, String senha){
         this.credenciais = new Credenciais(nomeUsuario, senha);
         this.setNome(nome);
@@ -35,10 +40,6 @@ public class Usuario extends Pessoa {
 
     public void setSenha(String senha){
         this.credenciais.setSenha(senha);
-    }
-
-    public Usuario(String userName, String password){
-        this.credenciais = new Credenciais(userName, password);
     }
 
 }

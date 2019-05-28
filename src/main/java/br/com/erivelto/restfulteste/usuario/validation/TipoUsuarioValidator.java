@@ -7,12 +7,15 @@ import br.com.erivelto.restfulteste.usuario.TipoUsuario;
 /**
  * Create by erivelto on 08/02/19
  */
-public class TipoUsuarioValidator implements Validator<String> {
+public class TipoUsuarioValidator implements Validator<TipoUsuario> {
 
     @Override
-    public void valida(String tipoUsuario) throws ValidationException {
-        if(TipoUsuario.getUsuarioPorTipo(tipoUsuario) == null){
+    public void valida(TipoUsuario tipoUsuario) throws ValidationException {
+        TipoUsuario valida;
+        if(tipoUsuario == null){
             throw new ValidationException("Tipo de Usuario Inválido!");
         }
     }
+
+
 }

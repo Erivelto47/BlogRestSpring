@@ -11,4 +11,5 @@ public interface UsuarioRepository extends JpaRepository<Usuario, Long>, Usuario
 
     Optional<Usuario> findByCredenciais_NomeUsuario(String nomeUsario);//develve um optional de usuario, nao precisa verificar se é diferente de null
 
+    Usuario findByCredenciaisNomeUsuario(String nomeUsuario);
 }
