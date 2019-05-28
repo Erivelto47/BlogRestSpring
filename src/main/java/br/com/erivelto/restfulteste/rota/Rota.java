@@ -1,4 +1,4 @@
-package br.com.erivelto.restfulteste.rotas;
+package br.com.erivelto.restfulteste.rota;
 
 import br.com.erivelto.restfulteste.usuario.TipoUsuario;
 import lombok.Data;
@@ -10,7 +10,7 @@ import javax.persistence.*;
  */
 @Data
 @Entity(name = "rotas")
-public class Rotas {
+public class Rota {
 
     @Id
     @Column(name = "id")
@@ -26,7 +26,7 @@ public class Rotas {
     private TipoUsuario tipoUsuario;
 
     /**
-     * Nome da rota é composto pelo menu exemplo '/login', nesta variável 'login'
+     * Nome da rota é composto pelo menu exemplo '/login', nesta variável 'Login'
      * */
     @Column(name = "nome")
     private String nome;
